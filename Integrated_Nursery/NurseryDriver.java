@@ -47,6 +47,7 @@ public class NurseryDriver {
     private static void createUserPlant() {
         Scanner sc = new Scanner(System.in);
         String genus, common, date;
+        boolean validDate = true;
         String validDatePattern = "^\\d{4}-\\d{2}-\\d{2}$";
 
         do {
@@ -86,7 +87,8 @@ public class NurseryDriver {
 
         do {
             System.out.println("\nEnter when the plant was first introduced to the nursery [YYYY-MM-DD]");
-            date = sc.nextLine();   
+            date = sc.nextLine(); 
+            validDate = true;  
             
             if(!date.matches(validDatePattern))
                 System.err.println("ERROR - date MUST follow [YYYY-MM-DD]");
@@ -95,9 +97,10 @@ public class NurseryDriver {
                 LocalDate.parse(date);
             } catch(Exception e) {
                 System.err.println("ERROR - Cannot parse date.");
+                validDate = false;
             }
 
-        } while(!date.matches(validDatePattern));
+        } while(!validDate || !date.matches(validDatePattern));
 
 
         plants.add(new Plant(genus, common, LocalDate.parse(date), new int[]{-1}, null));

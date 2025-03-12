@@ -49,11 +49,11 @@ public class Plant {
     /**
      * Constructor for Plant. Checks if the names are valid and then sets them.
      * 
-     * @param genusSpecies 
-     * @param commonName
-     * @param dateIntroducted
-     * @param zoneNumbers
-     * @param group
+     * @param genusSpecies genus name of the plant
+     * @param commonName common name of the plant
+     * @param dateIntroducted date the plant was introduced to the nursery
+     * @param zoneNumbers int[] of all of the plants acceptable zones
+     * @param group the plant's group
      */
     public Plant(String genusSpecies, String commonName, LocalDate dateIntroducted, int[] zoneNumbers, plantGroup group) {
         if(validateNames(genusSpecies, commonName)) {
@@ -71,9 +71,10 @@ public class Plant {
     }
 
     /**
+     * Determines if the the given zoneNumber if within the plant's acceptable zone
      * 
-     * @param zoneNumber 
-     * @return 
+     * @param zoneNumber A zone number from the Arnold Arboretum map
+     * @return True/False if the zone number is in the Plant's zone
      */
     public boolean growsInZone(int zoneNumber) {
         return zones.containsKey(zoneNumber);

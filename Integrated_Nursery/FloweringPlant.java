@@ -3,6 +3,8 @@ package Integrated_Nursery;
 import java.time.LocalDate;
 
 /**
+ * FloweringPlant simulates a flowering plant in a nursery. It is a subclass of the {@link Plant} class. 
+ * Along with {@link Plant} variables, FloweringPlant has flowerColors and features.
  * 
  * @author Andrew Casey, Saadat Emilbekova, Jason Mele
  * @version 3/13/2025
